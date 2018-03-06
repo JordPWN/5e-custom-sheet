@@ -1,5 +1,5 @@
 <template>
-  <div class='form-select'>
+  <div class='form-select flex-container row'>
     <label v-if='label'>{{ label }}</label>
     <custom-select
       :options='options'

@@ -1,8 +1,9 @@
 <template>
-  <div id='stats'>
+  <div id='stats' class='flex-container column center'>
     <stat v-for='(stat, index) in stats' :key='index' :stat='stat' />
   </div>
 </template>
+
 <script>
 import Stat from './Stat'
 export default {
@@ -42,5 +43,13 @@ export default {
   }
 }
 </script>
+
 <style lang='scss' scoped>
+#stats {
+  border: .025em solid grey;
+  padding: var(--padding);
+  // > div {
+  //   width: 25vw;
+  // }
+}
 </style>

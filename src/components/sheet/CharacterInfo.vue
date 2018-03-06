@@ -1,6 +1,6 @@
 <template>
-  <div id='character-info' class='flex column'>
-    <div class='group flex row space-evenly'>
+  <div id='character-info' class='column'>
+    <div class='group flex-container row space-evenly'>
       <form-field
       label='Character Name'
       name='name'
@@ -19,7 +19,7 @@
       type='datalist'
       />
     </div>
-    <div class='group flex row space-evenly'>
+    <div class='group flex-container row space-evenly'>
       <form-select
         label='Background'
         :options='background'
@@ -85,8 +85,10 @@ export default {
 
 <style lang='scss' scoped>
 #character-info {
+  display: flex;
   width: 100%;
   height: 100%;
+  margin-bottom: 5em;
   .group {
     > * {
       width: 33%;

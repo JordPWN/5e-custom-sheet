@@ -1,5 +1,5 @@
 <template>
-  <div class='form-field'>
+  <div class='form-field flex-container'>
     <label v-if='label'>{{ label }}</label>
     <input
       ref='input'

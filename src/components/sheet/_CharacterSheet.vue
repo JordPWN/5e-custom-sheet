@@ -1,27 +1,33 @@
 <template>
-  <div id='character-sheet' class='flex column'>
-    <div class='header'>
+  <div id='character-sheet' class='flex-container column'>
+    <div class='header flex-item row'>
       <character-info />
     </div>
 
-    <div class='body'>
-      <div class='left'>
-        <stats />
-        <proficiency />
-        <skills />
-        <saving-throws />
+    <div class='body flex-container row'>
+      <div id='character-left' class='flex-container column objective'>
+        <div class='flex-container row'>
+          <div id='section-1' class='flex-item column left'>
+            <stats />
+          </div>
+          <div id='section-2' class='flex-container column right'>
+            <proficiency />
+            <saving-throws />
+            <skills />
+          </div>
+        </div>
         <passives />
       </div>
-      <div class='right'>
+      <div id='character-right' class='flex column'>
+        <equipment />
+        <attacks />
+        <feats />
+        <mechanics />
+        <roleplaying />
+        <traits />
       </div>
     </div>
 
-    <equipment />
-    <attacks />
-    <feats />
-    <mechanics />
-    <roleplaying />
-    <traits />
   </div>
 </template>
 
@@ -59,4 +65,40 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+#section-1, #section-2 {
+  max-width: 20%;
+  height: 100%;
+}
+#section-1 {
+  margin-right: var(--padding);
+}
+#section-2 {
+  > div {
+    margin-bottom: 2em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+.body {
+  > div {
+    width: 50%;
+  }
+}
+.outer-container {
+    width: 100%;
+    justify-content: space-between;
+  > .inner-container {
+  }
+}
+.body .right {
+  font-size: .5rem;
+  // width: 100%;
+  > .inner-container {
+    width: 100%;
+    > div {
+      margin-bottom: var(--padding);
+    }
+  }
+}
 </style>

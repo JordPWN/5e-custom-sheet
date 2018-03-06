@@ -1,5 +1,5 @@
 <template>
-  <div id='passives'>
+  <div id='passives' class='flex-container'>
     Passives
   </div>
 </template>

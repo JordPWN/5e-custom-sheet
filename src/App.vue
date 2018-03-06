@@ -11,6 +11,10 @@ export default {
 </script>
 
 <style lang='scss'>
+:root {
+  --border: .01em;
+  --padding: 1em;
+}
 html, body {
   padding: 0;
   margin: 0;
@@ -30,10 +34,16 @@ html, body {
       padding: 5em;
     }
 }
-.flex {
+.flex-container {
   display: flex;
-  > * {
+  height: 100%;
+  .flex-item {
     display: flex;
+    flex: 1 0 auto;
+  }
+  &.center {
+    align-items: center;
+    justify-content: center;
   }
 }
 .column {
@@ -50,6 +60,9 @@ label {
 }
 input {
   border: none;
-  border-bottom: .01em solid grey;
+  border-bottom: var(--border) solid grey;
+}
+.title {
+  font-size: 1rem;
 }
 </style>

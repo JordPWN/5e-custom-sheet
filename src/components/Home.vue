@@ -1,6 +1,6 @@
 <template>
-  <div id='home'>
-    <div class='page-container'>
+  <div id='home' class='flex-container'>
+    <div class='page-container flex-container'>
       <character-sheet />
     </div>
   </div>
@@ -19,9 +19,14 @@ export default {
 
 <style lang='scss'>
 #home {
-  .page-container > div {
-    width: 100%;
+  .page-container {
+    width: 100vw;
     height: 100%;
+    > div {
+      width: 100%;
+      height: 100%;
+    }
   }
+
 }
 </style>

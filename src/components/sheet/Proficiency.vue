@@ -4,17 +4,20 @@
       Proficiency
     </div>
     <div class='flex-item center value'>
-      <input type='number' value='2'/>
+      <input-number value='2'/>
     </div>
   </div>
 </template>
 
 <script>
 import CustomSelect from '../common/CustomSelect'
+import InputNumber from '../common/InputNumber'
+
 export default {
   name: 'proficiency',
   components: {
-    CustomSelect
+    CustomSelect,
+    InputNumber
   }
 }
 </script>

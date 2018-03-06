@@ -34,6 +34,9 @@ html, body {
       padding: 5em;
     }
 }
+.flex {
+  display: flex;
+}
 .flex-container {
   display: flex;
   height: 100%;
@@ -52,7 +55,8 @@ html, body {
 .row {
   flex-direction: row;
 }
-.space-evenly {
+.space-evenly, .space-between {
+  display: flex;
   justify-content: space-between;
 }
 label {
@@ -64,5 +68,18 @@ input {
 }
 .title {
   font-size: 1rem;
+  text-transform: capitalize;
+}
+.label {
+  text-transform: capitalize;
+}
+input[type='number'] {
+  font-size: 1.3em;
+  width: inherit;
+  border: none;
+  border-bottom: var(--border) solid grey;
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 }
 </style>

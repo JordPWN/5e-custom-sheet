@@ -1,5 +1,6 @@
 <template>
   <div id='character-info' class='column'>
+
     <div class='group flex-container row space-evenly'>
       <form-field
       label='Character Name'
@@ -19,6 +20,7 @@
       type='datalist'
       />
     </div>
+
     <div class='group flex-container row space-evenly'>
       <form-select
         label='Background'
@@ -54,29 +56,31 @@ export default {
   data () {
     return {
       alignment: [
-        'Lawful Good',
-        'Neutral Good',
-        'Chaotic Good',
-        'Lawful',
-        'Neutral',
-        'Chaotic',
-        'Lawful Evil',
-        'Neutral Evil',
-        'Chaotic Evil'
+        'lawful good',
+        'neutral good',
+        'chaotic good',
+        'lawful',
+        'neutral',
+        'chaotic',
+        'lawful evil',
+        'neutral evil',
+        'chaotic evil'
       ],
       background: [
-        'Adept',
-        'Sailor'
+        'adept',
+        'sailor'
       ],
       classes: [
-        'Barbarian',
-        'Bard',
-        'Cleric'
+        'barbarian',
+        'bard',
+        'cleric',
+        'druid',
+        'fighter'
       ],
       races: [
-        'Human',
-        'Elf',
-        'Dwarf'
+        'human',
+        'elf',
+        'dwarf'
       ]
     }
   }

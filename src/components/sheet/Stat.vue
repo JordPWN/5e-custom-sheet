@@ -1,24 +1,60 @@
 <template>
   <div class='stat flex-container column center'>
     <div class='label flex-item center'>
-      {{ stat.name }}
+      {{ name }}
     </div>
     <div class='value flex-item center'>
-      <input type='number' :value='stat.value' />
+      <input-number v-model='statUpdate' />
     </div>
+    <input v-if='bonusToggle === true' :value='bonus' class='bonus value'/>
   </div>
 </template>
+
 <script>
+import InputNumber from '../common/InputNumber'
+
 export default {
   name: 'stat',
-  props: ['stat']
+  components: {
+    InputNumber
+  },
+  props: ['stat', 'name', 'bonusToggle'],
+  computed: {
+    bonus () {
+      let temp = 0
+      temp = Math.floor((this.statUpdate - 10) / 2)
+      return temp
+    }
+  },
+  data () {
+    return {
+      statUpdate: this.stat
+    }
+  },
+  watch: {
+    statUpdate (val) {
+      this.$emit('input', val, this.name)
+    }
+  }
 }
 </script>
+
 <style lang='scss' scoped>
 .stat {
   padding: .5em;
-  // border: var(--border) solid grey;
   width: 100%;
+  .bonus {
+    padding: .05em !important;
+    font-size: .8em;
+    height: .5em;
+    width: .5em;
+    right: -1.6em;
+    top: -1.6em;
+    position: relative;
+    text-align: center;
+    border: none;
+    background-color: white;
+  }
   .label {
     padding-bottom: .5em;
   }

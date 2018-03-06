@@ -19,10 +19,10 @@
         <passives />
       </div>
       <div id='character-right' class='flex column'>
+        <mechanics />
         <equipment />
         <attacks />
         <feats />
-        <mechanics />
         <roleplaying />
         <traits />
       </div>
@@ -66,8 +66,6 @@ export default {
 
 <style lang='scss' scoped>
 #section-1, #section-2 {
-  max-width: 20%;
-  height: 100%;
 }
 #section-1 {
   margin-right: var(--padding);
@@ -80,10 +78,9 @@ export default {
     }
   }
 }
-.body {
-  > div {
-    width: 50%;
-  }
+#character-left {
+  width: 25%;
+  padding-right: var(--padding);
 }
 .outer-container {
     width: 100%;

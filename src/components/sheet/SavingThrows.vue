@@ -3,7 +3,7 @@
     <div class='title flex-item center'>
       Saving Throws
     </div>
-    <stat v-for='(stat, index) in stats' :key='index' :stat='stat' class='row' />
+    <stat v-for='(stat, index) in stats' :key='index' :stat='stat.value' :name='stat.name' class='row' />
   </div>
 </template>
 <script>

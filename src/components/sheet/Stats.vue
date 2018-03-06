@@ -1,44 +1,26 @@
 <template>
   <div id='stats' class='flex-container column center'>
-    <stat v-for='(stat, index) in stats' :key='index' :stat='stat' />
+    <stat v-for='(stat, name) in stats' :key='name' :stat='stat' :name='name' @input='updateStat' :bonusToggle='true'/>
   </div>
 </template>
 
 <script>
 import Stat from './Stat'
+
+import { mapState } from 'vuex'
+
 export default {
   name: 'stats',
   components: {
     Stat
   },
-  data () {
-    return {
-      stats: [
-        {
-          name: 'Strength',
-          value: 18
-        },
-        {
-          name: 'Dexterity',
-          value: 18
-        },
-        {
-          name: 'Constitution',
-          value: 18
-        },
-        {
-          name: 'Intelligence',
-          value: 18
-        },
-        {
-          name: 'Wisdom',
-          value: 18
-        },
-        {
-          name: 'Charisma',
-          value: 18
-        }
-      ]
+  computed: {
+    ...mapState(['stats'])
+  },
+  methods: {
+    updateStat (val, name) {
+      console.log('Updating stat: ', val, ' ', name)
+      this.$store.commit('updateStat', val, name)
     }
   }
 }

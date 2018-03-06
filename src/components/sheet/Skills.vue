@@ -4,15 +4,20 @@
     <div class='skill-container flex-container column'>
       <div class='skill flex-item row' v-for='(skill, index) in skills' :key='index'>
         <input :id='"checkbox" + index' type='checkbox' />
-        <input type='number' />
+        <input-number value='0' />
         <label>{{ skill.name }} ({{skill.stat}})</label>
       </div>
     </div>
   </div>
 </template>
 <script>
+import InputNumber from '../common/InputNumber'
+
 export default {
   name: 'skills',
+  components: {
+    InputNumber
+  },
   data () {
     return {
       skills: [
@@ -104,7 +109,7 @@ export default {
     width: 1em;
     text-align: center;
     border-bottom: var(--border) solid grey;
-    padding-right: .5em;
+    margin-right: 1em;
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;
     }

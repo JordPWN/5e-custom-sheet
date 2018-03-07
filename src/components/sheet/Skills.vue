@@ -4,7 +4,8 @@
     <div class='skill-container flex-container column'>
       <div class='skill flex-item row' v-for='(skill, index) in skills' :key='index'>
         <input :id='"checkbox" + index' type='checkbox' />
-        <input-number value='0' />
+        <!-- <proficiency-box :id='"saving-throw-check-" + name' :value='savingThrowProf[name]' @input='updateSaveProf' :label='name' /> -->
+        <input-number :value='statBonuses[skill.stat]' />
         <label>{{ skill.name }} ({{skill.stat}})</label>
       </div>
     </div>
@@ -13,85 +14,90 @@
 <script>
 import InputNumber from '../common/InputNumber'
 
+import { mapState } from 'vuex'
+
 export default {
   name: 'skills',
   components: {
     InputNumber
+  },
+  computed: {
+    ...mapState(['statBonuses'])
   },
   data () {
     return {
       skills: [
         {
           name: 'acrobatics',
-          stat: 'dex'
+          stat: 'dexterity'
         },
         {
           name: 'animal handling',
-          stat: 'wis'
+          stat: 'wisdom'
         },
         {
           name: 'arcana',
-          stat: 'int'
+          stat: 'intelligence'
         },
         {
           name: 'athletics',
-          stat: 'str'
+          stat: 'strength'
         },
         {
           name: 'deception',
-          stat: 'cha'
+          stat: 'charisma'
         },
         {
           name: 'history',
-          stat: 'int'
+          stat: 'intelligence'
         },
         {
           name: 'insight',
-          stat: 'wis'
+          stat: 'wisdom'
         },
         {
           name: 'intimidation',
-          stat: 'cha'
+          stat: 'charisma'
         },
         {
           name: 'investigation',
-          stat: 'int'
+          stat: 'intelligence'
         },
         {
           name: 'medicine',
-          stat: 'wis'
+          stat: 'wisdom'
         },
         {
           name: 'nature',
-          stat: 'int'
+          stat: 'intelligence'
         },
         {
           name: 'perception',
-          stat: 'wis'
+          stat: 'wisdom'
         },
         {
           name: 'performance',
-          stat: 'cha'
+          stat: 'charisma'
         },
         {
           name: 'persuasion',
-          stat: 'cha'
+          stat: 'charisma'
         },
         {
           name: 'religion',
-          stat: 'int'
+          stat: 'intelligence'
         },
         {
           name: 'stealth',
-          stat: 'dex'
+          stat: 'dexterity'
         },
         {
           name: 'sleight of hand',
-          stat: 'dex'
+          stat: 'dexterity'
         },
         {
           name: 'survival',
-          stat: 'wis'
+          stat: 'wisdom'
         }
       ]
     }

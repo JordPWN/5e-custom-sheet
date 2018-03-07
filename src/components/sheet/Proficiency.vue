@@ -1,5 +1,5 @@
 <template>
-  <div id='proficiency' class='flex-container column center'>
+  <div id='proficiency' class='flex-container column center flex-item'>
     <div class='title'>
       Proficiency
     </div>

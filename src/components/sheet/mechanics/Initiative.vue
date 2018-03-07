@@ -1,6 +1,6 @@
 <template>
   <div id='initiative'>
-    Attacks
+    Initiative
   </div>
 </template>
 <script>
@@ -9,4 +9,9 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
+#initiative {
+  width: 100%;
+  border: var(--border) solid grey;
+  padding: var(--padding);
+}
 </style>

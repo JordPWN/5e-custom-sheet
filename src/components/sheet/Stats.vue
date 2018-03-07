@@ -18,9 +18,8 @@ export default {
     ...mapState(['stats'])
   },
   methods: {
-    updateStat (val, name) {
-      console.log('Updating stat: ', val, ' ', name)
-      this.$store.commit('updateStat', val, name)
+    updateStat (val) {
+      this.$store.dispatch('updateStat', val)
     }
   }
 }

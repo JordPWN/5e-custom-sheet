@@ -1,46 +1,44 @@
 <template>
-  <div id='saving-throws' class='flex-container column center'>
+  <div id='saving-throws' class='flex-container column center flex-item'>
     <div class='title flex-item center'>
       Saving Throws
     </div>
-    <stat v-for='(stat, index) in stats' :key='index' :stat='stat.value' :name='stat.name' class='row' />
+    <stat v-for='(stat, name) in savingThrows' :key='name' :name='name' @input='update' :stat='stat' class='row'>
+      <proficiency-box :id='"saving-throw-check-" + name' :value='savingThrowProf[name]' @input='updateSaveProf' :label='name' />
+    </stat>
   </div>
 </template>
 <script>
 import Stat from './Stat'
+import ProficiencyBox from '../common/ProficiencyBox'
+
+import { mapState } from 'vuex'
+
 export default {
   name: 'saving-throws',
   components: {
-    Stat
+    Stat,
+    ProficiencyBox
   },
-  data () {
-    return {
-      stats: [
-        {
-          name: 'Strength',
-          value: 2
-        },
-        {
-          name: 'Dexterity',
-          value: 2
-        },
-        {
-          name: 'Constitution',
-          value: 2
-        },
-        {
-          name: 'Intelligence',
-          value: 2
-        },
-        {
-          name: 'Wisdom',
-          value: 2
-        },
-        {
-          name: 'Charisma',
-          value: 2
-        }
-      ]
+  computed: {
+    ...mapState(['savingThrowProf', 'statBonuses']),
+    savingThrows () {
+      let temp = {}
+      for (let index in this.statBonuses) {
+        temp[index] = this.statBonuses[index]
+        if (this.savingThrowProf[index]) temp[index] = (temp[index] + 2)
+      }
+      return temp
+    }
+  },
+  methods: {
+    update (val) {
+      console.log(val)
+    },
+    updateSaveProf (val, name) {
+      let save = {}
+      save[name] = val
+      this.$store.commit('updateSaveProf', save)
     }
   }
 }
@@ -58,6 +56,7 @@ export default {
     }
     .label {
       display: flex;
+      align-items: center;
       width: 50%;
       padding-bottom: 0 !important;
     }

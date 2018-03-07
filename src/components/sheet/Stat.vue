@@ -1,7 +1,7 @@
 <template>
   <div class='stat flex-container column center'>
     <div class='label flex-item center'>
-      {{ name }}
+      <slot/>{{ name }}
     </div>
     <div class='value flex-item center'>
       <input-number v-model='statUpdate' />
@@ -32,8 +32,12 @@ export default {
     }
   },
   watch: {
+    stat (val) {
+      this.statUpdate = val
+    },
     statUpdate (val) {
-      this.$emit('input', val, this.name)
+      let temp = {[this.name]: val}
+      this.$emit('input', temp)
     }
   }
 }

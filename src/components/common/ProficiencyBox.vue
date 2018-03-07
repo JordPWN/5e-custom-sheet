@@ -1,11 +1,11 @@
 <template>
-  <input type='number' v-model.number='newValue' />
+  <input type='checkbox' :checked='value' v-model='newValue' />
 </template>
 
 <script>
 export default {
-  name: 'input-number',
-  props: ['value'],
+  name: 'proficiency-box',
+  props: ['value', 'label'],
   data () {
     return {
       newValue: this.$props.value
@@ -16,14 +16,11 @@ export default {
       this.newValue = val
     },
     newValue (val) {
-      this.$emit('input', val)
+      this.$emit('input', val, this.label)
     }
   }
 }
 </script>
 
 <style lang='scss' scoped>
-input[type='number'] {
-  text-align: center;
-}
 </style>

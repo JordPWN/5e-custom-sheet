@@ -2,7 +2,7 @@
   <div id='mechanics'>
     <div class='flex-container column'>
       <armor-class />
-      <div class='flex-container row'>
+      <div class='flex-container row space-between'>
         <initiative />
         <speed />
       </div>
@@ -43,5 +43,6 @@ export default {
 #mechanics {
   width: 100%;
   border: var(--border) solid grey;
+  padding: var(--padding);
 }
 </style>

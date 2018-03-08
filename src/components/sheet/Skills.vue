@@ -3,7 +3,7 @@
     <div class='title'>Skills</div>
     <div class='skill-container flex-container column'>
       <div class='skill flex-item row' v-for='(skill, index) in skillValues' :key='index'>
-        <proficiency-box :id='"skill-check-" + index' :value='skillProfs[skill]' @input='updateSkillProf' :label='index' />
+        <proficiency-box :id='"skill-check-" + kebabName(index)' :value='skillProfs[index]' @input='updateSkillProf' :label='index' />
         <input-number :value='skill' />
         <label>{{ index }} ({{skills[index]}})</label>
       </div>
@@ -40,6 +40,9 @@ export default {
       let skill = {}
       skill[name] = val
       this.$store.commit('updateSkillProf', skill)
+    },
+    kebabName (name) {
+      return name.replace(/\s+/g, '-')
     }
   },
   data () {

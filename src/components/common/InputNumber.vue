@@ -8,7 +8,7 @@ export default {
   props: ['value'],
   data () {
     return {
-      newValue: this.$props.value
+      newValue: this.$props.value || 0
     }
   },
   watch: {

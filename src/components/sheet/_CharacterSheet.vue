@@ -6,7 +6,7 @@
 
     <div class='body flex-container row'>
       <div id='character-left' class='flex-container column objective'>
-        <div class='flex-container row'>
+        <div class='flex-container row auto-height'>
           <div id='section-1' class='flex-item column left'>
             <stats />
           </div>
@@ -71,6 +71,7 @@ export default {
   margin-right: var(--padding);
 }
 #section-2 {
+  height: auto;
   > div {
     margin-bottom: 2em;
     &:last-child {
@@ -87,6 +88,9 @@ export default {
     justify-content: space-between;
   > .inner-container {
   }
+}
+.auto-height {
+  height: auto;
 }
 .body .right {
   font-size: .5rem;

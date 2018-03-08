@@ -16,5 +16,9 @@ export const mutations = {
   updateSaveProf (state, val) {
     console.log('ST state updated: ', val)
     state.savingThrowProf = { ...state.savingThrowProf, ...val }
+  },
+  updateSkillProf (state, val) {
+    console.log('Skill state updated: ', val)
+    state.skillProfs = { ...state.skillProfs, ...val }
   }
 }

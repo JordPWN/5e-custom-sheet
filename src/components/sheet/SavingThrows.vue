@@ -1,5 +1,5 @@
 <template>
-  <div id='saving-throws' class='flex-container column center flex-item'>
+  <div id='saving-throws' class='flex-container column center'>
     <div class='title flex-item center'>
       Saving Throws
     </div>

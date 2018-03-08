@@ -44,7 +44,7 @@ const savingThrowProf = {
 const skillProfs = {
   'acrobatics': false,
   'animal handling': false,
-  'arcana': false,
+  'arcana': true,
   'athletics': false,
   'deception': false,
   'history': false,

@@ -2,104 +2,49 @@
   <div id='skills'>
     <div class='title'>Skills</div>
     <div class='skill-container flex-container column'>
-      <div class='skill flex-item row' v-for='(skill, index) in skills' :key='index'>
-        <input :id='"checkbox" + index' type='checkbox' />
-        <!-- <proficiency-box :id='"saving-throw-check-" + name' :value='savingThrowProf[name]' @input='updateSaveProf' :label='name' /> -->
-        <input-number :value='statBonuses[skill.stat]' />
-        <label>{{ skill.name }} ({{skill.stat}})</label>
+      <div class='skill flex-item row' v-for='(skill, index) in skillValues' :key='index'>
+        <proficiency-box :id='"skill-check-" + index' :value='skillProfs[skill]' @input='updateSkillProf' :label='index' />
+        <input-number :value='skill' />
+        <label>{{ index }} ({{skills[index]}})</label>
       </div>
     </div>
   </div>
 </template>
 <script>
 import InputNumber from '../common/InputNumber'
+import ProficiencyBox from '../common/ProficiencyBox'
+
+import skills from '../../libraries/skills.js'
 
 import { mapState } from 'vuex'
 
 export default {
   name: 'skills',
   components: {
-    InputNumber
+    InputNumber,
+    ProficiencyBox
   },
   computed: {
-    ...mapState(['statBonuses'])
+    ...mapState(['statBonuses', 'skillProfs']),
+    skillValues () {
+      let temp = {}
+      for (let index in this.skillProfs) {
+        temp[index] = this.statBonuses[this.skills[index]]
+        if (this.skillProfs[index]) temp[index] = (temp[index] + 2)
+      }
+      return temp
+    }
+  },
+  methods: {
+    updateSkillProf (val, name) {
+      let skill = {}
+      skill[name] = val
+      this.$store.commit('updateSkillProf', skill)
+    }
   },
   data () {
     return {
-      skills: [
-        {
-          name: 'acrobatics',
-          stat: 'dexterity'
-        },
-        {
-          name: 'animal handling',
-          stat: 'wisdom'
-        },
-        {
-          name: 'arcana',
-          stat: 'intelligence'
-        },
-        {
-          name: 'athletics',
-          stat: 'strength'
-        },
-        {
-          name: 'deception',
-          stat: 'charisma'
-        },
-        {
-          name: 'history',
-          stat: 'intelligence'
-        },
-        {
-          name: 'insight',
-          stat: 'wisdom'
-        },
-        {
-          name: 'intimidation',
-          stat: 'charisma'
-        },
-        {
-          name: 'investigation',
-          stat: 'intelligence'
-        },
-        {
-          name: 'medicine',
-          stat: 'wisdom'
-        },
-        {
-          name: 'nature',
-          stat: 'intelligence'
-        },
-        {
-          name: 'perception',
-          stat: 'wisdom'
-        },
-        {
-          name: 'performance',
-          stat: 'charisma'
-        },
-        {
-          name: 'persuasion',
-          stat: 'charisma'
-        },
-        {
-          name: 'religion',
-          stat: 'intelligence'
-        },
-        {
-          name: 'stealth',
-          stat: 'dexterity'
-        },
-        {
-          name: 'sleight of hand',
-          stat: 'dexterity'
-        },
-        {
-          name: 'survival',
-          stat: 'wisdom'
-        }
-      ]
+      skills: skills
     }
   }
 }

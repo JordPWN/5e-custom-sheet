@@ -26,6 +26,7 @@ export default {
 #proficiency {
   border: var(--border) solid grey;
   padding: var(--padding);
+  height: auto;
 }
 .value {
   display: flex;

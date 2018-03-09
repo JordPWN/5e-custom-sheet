@@ -10,9 +10,9 @@
 
 <template>
   <div class='datalist'>
-    <input :list='name' />
+    <input :list='name' v-model='newValue'/>
     <datalist class='datalist' :id='name'>
-      <option v-for='(item, index) in options' :value='item' :key='index'>
+      <option v-for='(item, index) in options' :value='item' :key='index' >
         {{ item }}
       </option>
     </datalist>
@@ -35,6 +35,12 @@ export default {
     name: {
       type: String,
       default: this.type
+    },
+    value: String
+  },
+  data () {
+    return {
+      newValue: this.value
     }
   }
 }

@@ -9,14 +9,17 @@
       />
 
       <div class='multiclass-container'>
-        <span v-for='(i, index) in classCount' :key='index' class='class-field'>
+        <span v-for='(i, index) in myClass' :key='index' class='class-field'>
+          <span class='remove-class' @click='decrementClass(index)' />
           <form-select
           label='Class'
           :options='classes'
           type='datalist'
+          :value='Object.keys(i)[index]'
+          @input='updateClass'
           />
-          <input-number />
-          <span @click='incrementClass' />
+          <input-number :value='i[index]' />
+          <span class='add-class' @click='addClass' />
         </span>
       </div>
 
@@ -69,12 +72,27 @@ export default {
       background: characterInfo.backgrounds,
       classes: characterInfo.classes,
       race: characterInfo.races,
-      classCount: 1
+      classCount: 1,
+      myClass: [{warlock: 1}]
     }
   },
   methods: {
-    incrementClass () {
-      this.classCount += 1
+    addClass () {
+      this.myClass.push({cat: 3})
+    },
+    decrementClass (index) {
+      if (this.myClass.length > 1) this.myClass.splice(index, 1)
+    },
+    updateClass (val) {
+      console.log('update: ', val)
+    }
+  },
+  watch: {
+    myClass: {
+      handler: function (newVal, oldVal) {
+        console.log('new: ', newVal, '\nold: ', oldVal)
+      },
+      deep: true
     }
   }
 }
@@ -86,10 +104,14 @@ export default {
   align-items: center;
   justify-content: center;
   &:hover {
-    >span::after {
+    >.add-class::after {
       content: '＋';
       position: relative;
-      // top: 5em;
+      cursor: pointer;
+    }
+    >.remove-class::before {
+      content: '－';
+      position: relative;
       cursor: pointer;
     }
   }

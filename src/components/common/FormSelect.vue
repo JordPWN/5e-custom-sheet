@@ -5,6 +5,7 @@
       :options='options'
       :type='type'
       :name='label'
+      v-model='value'
     />
   </div>
 </template>
@@ -17,7 +18,7 @@ export default {
   components: {
     CustomSelect
   },
-  props: ['label', 'options', 'type']
+  props: ['label', 'options', 'type', 'value']
 }
 </script>
 

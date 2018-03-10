@@ -73,6 +73,9 @@ input {
 .label {
   text-transform: capitalize;
 }
+.no-edit {
+  color: grey;
+}
 input[type='number'] {
   font-size: 1.3em;
   width: inherit;
@@ -80,6 +83,13 @@ input[type='number'] {
   border-bottom: var(--border) solid grey;
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
+  }
+  &.small {
+    width: 2.5em;
+    font-size: small;
+  }
+  &.total {
+    width: 2.5em;
   }
 }
 </style>

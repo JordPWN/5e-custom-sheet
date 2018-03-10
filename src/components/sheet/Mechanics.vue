@@ -42,7 +42,7 @@ export default {
 <style lang='scss' scoped>
 #mechanics {
   width: 100%;
-  border: var(--border) solid grey;
-  padding: var(--padding);
+  // border: var(--border) solid grey;
+  // padding: var(--padding);
 }
 </style>

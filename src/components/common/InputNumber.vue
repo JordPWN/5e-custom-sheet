@@ -5,7 +5,7 @@
 <script>
 export default {
   name: 'input-number',
-  props: ['value'],
+  props: ['value', 'max'],
   data () {
     return {
       newValue: this.$props.value || 0

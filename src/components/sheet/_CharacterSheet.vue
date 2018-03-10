@@ -18,13 +18,18 @@
         </div>
         <passives />
       </div>
-      <div id='character-right' class='flex column'>
-        <mechanics />
-        <equipment />
-        <attacks />
-        <feats />
-        <roleplaying />
-        <traits />
+
+      <div id='character-right' class='flex-container row'>
+        <div id='section-3' class='flex-container column left'>
+          <mechanics />
+          <equipment />
+        </div>
+        <div id='section-4' class='flex-container column right'>
+          <attacks />
+          <feats />
+          <roleplaying />
+          <traits />
+        </div>
       </div>
     </div>
 
@@ -72,6 +77,7 @@ export default {
 }
 #section-2 {
   height: auto;
+  font-size: .5rem;
   > div {
     margin-bottom: 2em;
     &:last-child {
@@ -80,7 +86,7 @@ export default {
   }
 }
 #character-left {
-  width: 25%;
+  width: 30%;
   padding-right: var(--padding);
 }
 .outer-container {
@@ -93,7 +99,6 @@ export default {
   height: auto;
 }
 .body .right {
-  font-size: .5rem;
   // width: 100%;
   > .inner-container {
     width: 100%;
@@ -101,5 +106,9 @@ export default {
       margin-bottom: var(--padding);
     }
   }
+}
+#character-right {
+  height: auto;
+  width: 100%;
 }
 </style>

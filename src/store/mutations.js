@@ -10,15 +10,12 @@ export const mutations = {
     let key = Object.keys(val)[0]
     let value = val[key]
     let bonus = { [key]: statBonus(value) }
-    console.log('Bonus updated!', bonus)
     state.statBonuses = { ...state.statBonuses, ...bonus }
   },
   updateSaveProf (state, val) {
-    console.log('ST state updated: ', val)
     state.savingThrowProf = { ...state.savingThrowProf, ...val }
   },
   updateSkillProf (state, val) {
-    console.log('Skill state updated: ', val)
     state.skillProfs = { ...state.skillProfs, ...val }
   }
 }

@@ -82,7 +82,7 @@ const weapons = {
     range: 'melee',
     thrownRange: [20, 60],
     weight: 3
-  },
+  }
 }
 
 export default weapons

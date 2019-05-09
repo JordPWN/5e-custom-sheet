@@ -70,6 +70,9 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+.body {
+  flex-flow: row wrap;
+}
 #section-1, #section-2 {
 }
 #section-1 {
@@ -86,7 +89,7 @@ export default {
   }
 }
 #character-left {
-  width: 30%;
+  min-width: 30%;
   padding-right: var(--padding);
 }
 .outer-container {
@@ -109,6 +112,6 @@ export default {
 }
 #character-right {
   height: auto;
-  width: 100%;
+  width: auto;
 }
 </style>
